@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Histórico{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="text-center">Histórico de Ordens de Serviço Resolvidas</h1>
+    <div class="card mb-4">
+        <div class="card-header"><h3>Ordens Resolvidas</h3></div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Mecânico</th>
+                        <th>Data</th>
+                        <th>Problema</th>
+                        <th>Solução</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ordem in ordens_resolvidas %}
+                    <tr>
+                        <td>{{ ordem.id }}</td>
+                        <td>{{ ordem.mecanico }}</td>
+                        <td>{{ ordem.data }}</td>
+                        <td>{{ ordem.problema }}</td>
+                        <td>{{ ordem.solucao if ordem.solucao else 'Não solucionado' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

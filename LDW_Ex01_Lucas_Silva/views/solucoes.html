@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Soluções{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="text-center">Adicionar Soluções</h1>
+    <div class="card mb-4">
+        <div class="card-header"><h3>Adicionar solução para ordem de serviço:</h3></div>
+        <div class="card-body">
+            <form action="{{ url_for('solucoes_ordens') }}" method="post">
+                <div class="mb-3">
+                    <label for="ordem_id" class="form-label">Selecione a Ordem de Serviço:</label>
+                    <select name="ordem_id" id="ordem_id" class="form-control" required>
+                        {% for ordem in ordens_oficina %}
+                        <option value="{{ ordem.id }}">{{ ordem.problema }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="solucao" class="form-label">Nova solução:</label>
+                    <textarea name="solucao" id="solucao" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

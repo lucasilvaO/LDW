@@ -1,0 +1,67 @@
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: #fff; /* Fundo branco para o corpo */
+  color: #000; /* Texto preto para contraste */
+}
+
+footer {
+  margin-top: auto;
+}
+
+.navbar-custom {
+  background-color: #333; /* Cor de fundo escura para a Navbar */
+}
+
+.navbar-nav .nav-link {
+  color: #fff; /* Cor do texto branco para os itens do menu */
+}
+
+.navbar-brand {
+  color: #fff; /* Cor do texto branco para o nome da marca */
+}
+
+.footer-custom {
+  background-color: #333; /* Cor de fundo escura para o rodapé */
+  color: #fff; /* Texto branco no rodapé */
+  padding: 20px 0;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  color: #000;
+  padding: 10px;
+  text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table thead th {
+  border-bottom: 2px solid #ddd;
+}

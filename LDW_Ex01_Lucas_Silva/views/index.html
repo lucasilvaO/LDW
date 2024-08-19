@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Ordens de Serviço{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="text-center">Ordens de Serviço</h1>
+    <div class="card mb-4">
+        <div class="card-header"><h3>Adicionar nova ordem de serviço:</h3></div>
+        <div class="card-body">
+            <form action="{{ url_for('ordens') }}" method="post">
+                <div class="mb-3">
+                    <label for="mecanico" class="form-label">Mecânico:</label>
+                    <input type="text" name="mecanico" id="mecanico" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descricao_problema" class="form-label">Descrição do Problema:</label>
+                    <textarea name="descricao_problema" id="descricao_problema" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mecânico</th>
+                <th>Data</th>
+                <th>Problema</th>
+                <th>Solução</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ordem in ordens_oficina %}
+            <tr>
+                <td>{{ ordem.id }}</td>
+                <td>{{ ordem.mecanico }}</td>
+                <td>{{ ordem.data }}</td>
+                <td>{{ ordem.problema }}</td>
+                <td>{{ ordem.solucao if ordem.solucao else 'Não solucionado' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
